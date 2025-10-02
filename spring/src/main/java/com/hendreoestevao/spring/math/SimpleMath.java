@@ -1,6 +1,5 @@
 package com.hendreoestevao.spring.math;
 
-import com.hendreoestevao.spring.exception.UnsopportedMathOperationException;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 

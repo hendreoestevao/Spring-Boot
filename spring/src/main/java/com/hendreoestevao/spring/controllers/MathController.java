@@ -13,8 +13,6 @@ public class MathController {
 
     private SimpleMath math = new SimpleMath();
 
-
-
     @RequestMapping("/sum/{a}/{b}")
     public Double sum(@PathVariable("a") String a, @PathVariable("b") String b) throws Exception {
         if(!NumberConverter.isNumerico(a) || NumberConverter.isNumerico(b)) throw  new UnsopportedMathOperationException("Please enter a numeric value");

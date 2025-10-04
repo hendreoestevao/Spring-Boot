@@ -1,6 +1,6 @@
 package com.hendreoestevao.spring.unitetests.mapper.mocks;
 
-import com.hendreoestevao.spring.data.dto.PersonDTO;
+import com.hendreoestevao.spring.data.dto.v1.PersonDTO;
 import com.hendreoestevao.spring.model.Person;
 
 import java.util.ArrayList;
@@ -8,7 +8,6 @@ import java.util.List;
 
 
 public class MockPerson {
-
 
     public Person mockEntity() {
         return mockEntity(0);

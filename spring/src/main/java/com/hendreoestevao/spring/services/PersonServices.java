@@ -1,7 +1,9 @@
 package com.hendreoestevao.spring.services;
 
-import com.hendreoestevao.spring.data.dto.PersonDTO;
+import com.hendreoestevao.spring.data.dto.v1.PersonDTO;
+import com.hendreoestevao.spring.data.dto.v2.PersonDTOV2;
 import com.hendreoestevao.spring.exception.ResourceNotFoundException;
+import com.hendreoestevao.spring.mapper.custom.PersonMapper;
 import com.hendreoestevao.spring.model.Person;
 import com.hendreoestevao.spring.repository.PersonRepository;
 import org.slf4j.Logger;
@@ -23,6 +25,9 @@ public class PersonServices {
     @Autowired
     PersonRepository personRepository;
 
+    @Autowired
+    PersonMapper personMapper;
+
     private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
     public List<PersonDTO> findAll() {
@@ -43,6 +48,14 @@ public class PersonServices {
         var entity = parseObject(person, Person.class);
 
         return parseObject(personRepository.save(entity), PersonDTO.class);
+    }
+
+    public PersonDTOV2 createV2(PersonDTOV2 person) {
+        logger.info("Creating one Person V2!");
+
+        var entity = personMapper.convertDTOToEntity(person);
+
+        return personMapper.convertEntityToDTO(personRepository.save(entity));
     }
 
     public PersonDTO update(PersonDTO person) {

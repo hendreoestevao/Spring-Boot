@@ -13,7 +13,6 @@ public class GreetingController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-
     // http://localhost:8080/greeting?name=Hendreo
     @RequestMapping("/greeting")
     public Greeting greeting(

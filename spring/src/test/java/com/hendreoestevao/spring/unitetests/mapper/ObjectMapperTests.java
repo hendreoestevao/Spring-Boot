@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
 
 
-import com.hendreoestevao.spring.data.dto.PersonDTO;
+import com.hendreoestevao.spring.data.dto.v1.PersonDTO;
 import com.hendreoestevao.spring.model.Person;
 import com.hendreoestevao.spring.unitetests.mapper.mocks.MockPerson;
 import org.junit.jupiter.api.BeforeEach;

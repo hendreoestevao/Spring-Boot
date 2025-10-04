@@ -1,7 +1,7 @@
 package com.hendreoestevao.spring.controllers;
 
+import com.hendreoestevao.spring.data.dto.PersonDTO;
 import com.hendreoestevao.spring.services.PersonServices;
-import com.hendreoestevao.spring.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,31 +21,31 @@ import java.util.List;
 public class PersonController {
 
     @Autowired
-    private PersonServices personServices;
+    private PersonServices PersonServices;
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person findById(@PathVariable("id") Long id) {
-        return personServices.findById(id);
+    public PersonDTO findById(@PathVariable("id") Long id) {
+        return PersonServices.findById(id);
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Person> findAll() {
-        return personServices.findAll();
+    public List<PersonDTO> findAll() {
+        return PersonServices.findAll();
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Person create(@RequestBody Person person) {
-        return personServices.create(person);
+    public PersonDTO create(@RequestBody PersonDTO person) {
+        return PersonServices.create(person);
     }
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Person update(@RequestBody Person person) {
-        return personServices.update(person);
+    public PersonDTO update(@RequestBody PersonDTO person) {
+        return PersonServices.update(person);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id) {
-         personServices.delete(id);
+        PersonServices.delete(id);
 
          return ResponseEntity.noContent().build();
     }
